@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Google Style Home</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .logo {
+      margin-top: 120px;
+      font-size: 100px;
+      font-weight: bold;
+    }
+
+    .logo span:nth-child(1) { color: #4285F4; }
+    .logo span:nth-child(2) { color: #DB4437; }
+    .logo span:nth-child(3) { color: #F4B400; }
+    .logo span:nth-child(4) { color: #4285F4; }
+    .logo span:nth-child(5) { color: #0F9D58; }
+    .logo span:nth-child(6) { color: #DB4437; }
+
+    .search-box {
+      margin-top: 30px;
+      width: 800px;
+      display: flex;
+      align-items: center;
+      border: 1px solid #dfe1e5;
+      border-radius: 24px;
+      padding: 10px 15px;
+      box-shadow: 0 1px 6px rgba(32, 33, 36, 0.28);
+    }
+  
+  body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+  }
+
+  .ai-mode-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    border: 2px solid #1a73e8; /* Google blue-ish */
+    border-radius: 9999px; /* Fully rounded pill shape */
+    background-color: white;
+    color: #333;
+    font-weight: 500;
+    font-size: 16px;
+    cursor: pointer;
+    user-select: none;
+    transition: background-color 0.2s, color 0.2s;
+  }
+
+  .ai-mode-button:hover {
+    background-color: #e8f0fe;
+    color: #1a73e8;
+  }
+
+  .ai-mode-button:active {
+    background-color: #c6dafc;
+  }
+
+  .ai-mode-icon {
+    width: 16px;
+    height: 16px;
+    fill: #1a73e8;
+  }
+
+
+    .search-box input {
+      flex: 1;
+      border: none;
+      outline: none;
+      font-size: 16px;
+    }
+
+    .shortcuts {
+      margin-top: 40px;
+      display: grid;
+      grid-template-columns: repeat(4, 90px);
+      gap: 20px;
+    }
+
+    .shortcut {
+      text-align: center;
+      cursor: pointer;
+    }
+
+    .icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: #f1f3f4;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: auto;
+      font-size: 20px;
+    }
+
+    .shortcut p {
+      margin-top: 8px;
+      font-size: 14px;
+    }
+
+    .shortcut:hover .icon {
+      background: #e8eaed;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Logo -->
+  <div class="logo">
+    <span>G</span><span>o</span><span>o</span><span>g</span><span>l</span><span>e</span>
+  </div>
+
+  <!-- Search -->
+  <div class="search-box">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <input type="text" id="search" placeholder="Search Google or type a URL" />
+    <i class="fa-solid fa-microphone"></i>
+    <i class="fa-regular fa-camera"></i>
+    
+  </div>
+
+  <!-- Shortcuts -->
+  <div class="shortcuts">
+    <div class="shortcut" onclick="go('https://www.google.com')">
+      <div class="icon">G</div>
+      <p>Google</p>
+    </div>
+
+    <div class="shortcut" onclick="go('https://www.youtube.com')">
+      <div class="icon">▶</div>
+      <p>YouTube</p>
+    </div>
+
+    <div class="shortcut" onclick="go('https://github.com')">
+      <div class="icon">GH</div>
+      <p>GitHub</p>
+    </div>
+
+    <div class="shortcut" onclick="go('https://chat.openai.com')">
+      <div class="icon">AI</div>
+      <p>ChatGPT</p>
+    </div>
+  </div>
+
+  <script>
+    const searchInput = document.getElementById("search");
+
+    searchInput.addEventListener("keydown", function (e) {
+      if (e.key === "Enter") {
+        let query = searchInput.value.trim();
+        if (query) {
+          window.location.href =
+            "https://www.google.com/search?q=" + encodeURIComponent(query);
+        }
+      }
+    });
+
+    function go(url) {
+      window.location.href = url;
+    }
+  </script>
+
+</body>
+</html>
